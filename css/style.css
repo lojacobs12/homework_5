@@ -54,13 +54,13 @@ footer{
 /*Keyframes for animation*/
 
 @-webkit-keyframes logo_wiggle{
-  0% {width: 25px;}
-  100% {width: 420px;}
+  from {width: 25px;}
+  to {width: 420px;}
 }
 
 @keyframes logo_wiggle{
-  0% {width: 25px;}
-  100% {width: 420px;}
+  from {width: 25px;}
+  to {width: 420px;}
 } 
 
 #logo{
@@ -70,14 +70,13 @@ footer{
 
 /* Cards! */
 .pricing{
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  min-height: 500px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
     /*Your code here.*/
     /*Don't forget to vertically and horizontally alight the card*/
-  
 }
 
 .card {
@@ -156,7 +155,7 @@ header{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .nav_item a{
@@ -174,11 +173,8 @@ header{
 @media screen and (min-width: 850px){
 
   /* Cards! */
-  #pricing {
-    flex-direction: row;
+  .card {
     flex-basis: 225px;
-    justify-content: center;
-    align-content: center;
   }
 
   .card_big{
@@ -189,10 +185,11 @@ header{
   /* Navbar */
   header{
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .nav_links{
+    flex-direction: row;
     justify-content: flex-end;
   }
 
@@ -202,12 +199,37 @@ header{
 }
 
 @media print { 
+  #logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 420px;
+  }
   .card {
     flex-basis: 200px;
+  }
+  .pricing{
+    align-items: flex-start;
+  }
+  .gallery{
+    display:none;
+  }
+  #gallery{
+    display: none;
+  }
+  body{
+    background-image: none;
+  }
+  footer{
+    display:block;
   }
   /*Your code here again.*/
   /*You will want four selectors*/  
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  #logo{
+    animation: none;
+  }
 /*Your code here again.*/ 
 /*Add media query to handle reduced-motion*/
